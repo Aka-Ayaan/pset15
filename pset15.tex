@@ -22,21 +22,54 @@ The problems below make use of concepts and definitions from Sections 10.1 and 1
   \question Prove that a connected graph with $n$ vertices has at least 2 vertices of the same degree.
   \begin{solution}
     % Enter your solution here.
+    \renewcommand\qedsymbol{$\square$}
+    \begin{proof}
+      We attempt a proof by contradiction. \\
+      Assume that a every vertex in a connected graph has a distinct degree. This means that the degrees of the vertices are $0, 1, 2, \ldots, n-1$ for n vertices. \\
+      This assumption implies that the node with degree zero will be isolated and not connected to any other node. \\
+      And since the graph is connected, the node with degree $n-1$ must be connected to all other nodes implying that each node in a connected graph has a degree of atleast one. \\
+      This creates a contradiction and therefore proves that a connected must have atleast 2 vertices of the same degree.
+    \end{proof}
   \end{solution}
 
   \question Prove that any cycle graph with an even number of vertices can be 2-colored.
   \begin{solution}
     % Enter your solution here.
+    \renewcommand\qedsymbol{$\square$}
+    \begin{proof}
+      We attempt a proof by structural induction. \\
+      \textbf{Base Case:} For a cycle graph with 4 vertices, we can color the vertices alternately with two colors. So the base case holds. \\
+      \textbf{Inductive Hypothesis:} Assume that a cycle graph with $2n$ vertices can be 2-colored. \\
+      \textbf{Inductive Step:} Consider a cycle graph with $2(n+1)$ vertices. We can add the two additional vertices to the cycle graph in such a way that they divide the cycle into two smaller sub-cycles. \\
+      Then these two vertices with the color of their respective cycles maintaining the 2-colored property of the cycle graph. \\
+      This completes the proof.
+    \end{proof}
   \end{solution}
 
   \question Prove by induction that a graph with $n$ edges requires no more than $n+1$ colors to ensure that no two adjacent edges have the same color.
   \begin{solution}
     % Enter your solution here.
+    \renewcommand\qedsymbol{$\square$}
+    \begin{proof}
+      Attempting a proof by mathematical induction. \\
+      \textbf{Base Case:} For a graph with 2 edges, we can color the edges with 2 colors. Since $2 \leq 2+1$, the base case holds. \\
+      \textbf{Inductive Hypothesis:} Assume that a graph with $n$ edges can be colored with no more than $n+1$ colors. \\
+      \textbf{Inductive Step:} Consider a graph with $n+1$ edges. We need only $n+1$ colors to ensure that each adjacent edge has a different color. \\
+      As per our hypothesis we have $n+1+1$ colors so and and that graph has $n+1$ edges so the hypothesis holds i.e $(n+1) \leq (n+1)+1$. \\
+      This completes the proof.
+    \end{proof}
   \end{solution}
   
   \question A \textit{perfect matching} in a graph is a matching that covers every vertex of the graph. Prove that if all the vertices of a bipartite graph have the same degree, then it has a perfect matching.
   \begin{solution}
     % Enter your solution here.
+    \renewcommand\qedsymbol{$\square$}
+    \begin{proof}
+      Atempting a direct proof. \\
+      Consider a bipartite graph $G = (V,E)$. This graph according to the definition of a bipartite graph can be broken down into two disjoint sets $V_1$ and $V_2$. \\
+      Every vertex in $V_1$ completely maps onto a vertex in $V_2$ and vice versa and that both seta have the same cardinality. \\
+      This mapping effectively covers all the vertices in the graph creating a perfect matching with every vertex having the same degree.
+    \end{proof}
   \end{solution}
 
   \question 100 tourists have arrived at Mohenjodaro. 25 tour guides are available for a one-on-one tour. Each tourist likes at least 10 of the guides. Show that the tours can be arranged such that each tourist tours with a guide that they like and no guide gives more than 10 tours.
@@ -44,6 +77,17 @@ The problems below make use of concepts and definitions from Sections 10.1 and 1
   \underline{Hint}: Consider each guide having 10 time slots corresponding to the constraint that each guide conducts at most 10 tours.
   \begin{solution}
     % Enter your solution here.
+    \renewcommand\qedsymbol{$\square$}
+    \begin{proof}
+      Attempting a proof using Hall's Marriage Theorem. \\
+      Let $T$ be the set of tourists and $G$ be the set of tour guides. \\
+      Let $N(S)$ be the set of tour guides that are liked by the tourists in $S$. \\
+      We need to show that $|N(S)| \geq |S|$ for all $S \subseteq T$. \\
+      Consider a subset $S$ of tourists. The number of guides that are liked by the tourists in $S$ is at least $10|S|$. \\
+      Since each guide can conduct at most 10 tours, the number of tours conducted by the guides in $N(S)$ is at most $10|N(S)|$. \\
+      This implies that $10|N(S)| \geq 10|S| \Rightarrow |N(S)| \geq |S|$. \\
+      This satisfies the condition of Hall's Marriage Theorem and implies that there exists a perfect matching between the tourist and the guides such that no guide gives more than 10 tours.
+    \end{proof}
   \end{solution}
 
 \end{questions}
